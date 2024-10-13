@@ -9,6 +9,9 @@ import org.springframework.stereotype.Repository;
 
 public interface TicketRepo extends JpaRepository<Tickets, Integer> {
 
-    @Query(value = "select * from tickets t JOIN conversations c ON t.id = c.ticket_id where t.id = ?1", nativeQuery = true)
+    @Query(value = "SELECT t.id AS ticket_id, c.id AS conversation_id, t.*, c.*\n" +
+            "FROM tickets t\n" +
+            "JOIN conversations c ON t.id = c.ticket_id\n" +
+            "WHERE t.id =  ?1", nativeQuery = true)
     Tickets getTicketById(int id);
 }
