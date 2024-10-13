@@ -13,5 +13,6 @@ public interface TicketRepo extends JpaRepository<Tickets, Integer> {
             "FROM tickets t\n" +
             "JOIN conversations c ON t.id = c.ticket_id\n" +
             "WHERE t.id =  ?1", nativeQuery = true)
+
     Tickets getTicketById(int id);
 }
