@@ -1,46 +1,64 @@
 package au.com.fivegn.fresharchive.dto;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Lob;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.sql.Timestamp;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class TicketDTO {
-    private int id;
-    private int workspace_id;
+
+    private Long id;
+    private Long workspace_id;
+    @Column(length = 255)
     private String subject;
-    private int group_id;
-    private int department_id;
+    private Long group_id;
+    private Long department_id;
+    @Column(length = 255)
     private String category;
+    @Column(length = 255)
     private String sub_category;
+    @Column(length = 255)
     private String item_category;
-    private int requester_id;
-    private int responder_id;
-    private String due_by;
-    private int fr_escalated;
-    private int deleted;
-    private int spam;
-    private int email_config_id;
-    private int is_escalated;
-    private String fr_due_by;
-    private int priority;
-    private int status;
-    private int source;
-    private String created_at;
-    private String updated_at;
-    private int requested_for_id;
+    private Long requester_id;
+    private Long responder_id;
+    private Timestamp due_by;
+    private Boolean fr_escalated;
+    private Boolean deleted;
+    private Boolean spam;
+    private Long email_config_id;
+    private Boolean is_escalated;
+    private Timestamp fr_due_by;
+    private Integer priority;
+    private Integer status;
+    private Integer source;
+    private Timestamp created_at;
+    private Timestamp updated_at;
+    private Long requested_for_id;
+    @Column(columnDefinition = "json")
     private String to_emails;
+    @Column(length = 50)
     private String type;
+    @Lob
     private String description;
+    @Column(columnDefinition = "text")
     private String description_text;
+    @Column(columnDefinition = "json")
     private String custom_fields;
-    private int tasks_dependency_type;
+    private Integer tasks_dependency_type;
+    @Column(columnDefinition = "json")
     private String fwd_emails;
+    @Column(columnDefinition = "json")
     private String reply_cc_emails;
+    @Column(columnDefinition = "json")
     private String cc_emails;
+    @Column(columnDefinition = "json")
     private String attachments;
-    private int assoc_change;
-    private int assoc_problem;
+    private Long assoc_change;
+    private Long assoc_problem;
 }
