@@ -26,7 +26,7 @@ public class TicketService {
     }
 
     public TicketDTO getTicketById(int ticketId) {
-        Tickets ticket = ticketRepo.findById(ticketId).orElse(null);
+        Tickets ticket = ticketRepo.getTicketById(ticketId);
 
         return modelMapper.map(ticket, TicketDTO.class);
     }
