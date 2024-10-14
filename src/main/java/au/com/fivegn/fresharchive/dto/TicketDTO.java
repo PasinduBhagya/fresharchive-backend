@@ -12,7 +12,6 @@ import java.sql.Timestamp;
 @NoArgsConstructor
 @AllArgsConstructor
 public class TicketDTO {
-
     private Long id;
     private Long workspace_id;
     @Column(length = 255)
@@ -60,5 +59,6 @@ public class TicketDTO {
     @Column(columnDefinition = "json")
     private String attachments;
     private Long assoc_change;
-    private Long assoc_problem;
+    @Column(length = 255)
+    private String conversations_body;
 }

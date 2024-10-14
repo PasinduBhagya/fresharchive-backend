@@ -15,11 +15,6 @@ public class TicketController {
     @Autowired
     private TicketService ticketService;
 
-    @GetMapping("/gettickets")
-    public List<TicketDTO> getTickets(){
-        return ticketService.getAllTickets();
-    }
-
     @GetMapping("/getticket/{ticketId}")
     public TicketDTO getTicketById(@PathVariable Integer ticketId){
         return ticketService.getTicketById(ticketId);

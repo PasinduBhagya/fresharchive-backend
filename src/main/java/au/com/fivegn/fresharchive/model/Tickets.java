@@ -96,5 +96,4 @@ public class Tickets {
     private Long assoc_change;
 
     private Long assoc_problem;
-
 }

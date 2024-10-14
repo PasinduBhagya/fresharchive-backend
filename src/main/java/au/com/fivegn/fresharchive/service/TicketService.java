@@ -20,11 +20,6 @@ public class TicketService {
     @Autowired
     private ModelMapper modelMapper;
 
-    public List<TicketDTO> getAllTickets() {
-        List<Tickets> ticketsList = ticketRepo.findAll();
-        return modelMapper.map(ticketsList, new TypeToken<List<TicketDTO>>(){}.getType());
-    }
-
     public TicketDTO getTicketById(int ticketId) {
         Tickets ticket = ticketRepo.getTicketById(ticketId);
 
